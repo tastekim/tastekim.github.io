@@ -33,7 +33,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             text-align: center;
-            background: url("https://velog.velcdn.com/images/tastekim_/post/b6b927c6-22cf-43c1-b3ac-644520fdbf85/image.PNG") no-repeat center center fixed;
+            background: url('https://www.mywebsite.com/background-image.jpg') no-repeat center center fixed;
             background-size: cover;
         }
 
@@ -55,33 +55,15 @@
             justify-content: center;
         }
 
-        store-image {
-            width: 200%;
-            max-width: 240px; /* 최대 너비를 조정하세요 */
+        .store-image {
+            width: 50%; /* 창 너비의 50%로 설정 */
             height: auto;
             margin: 10px;
             transition: transform 0.3s ease;
         }
 
-        .store-button {
-            display: inline-block;
-            padding: 12px 24px;
-            margin: 10px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .store-button:hover {
-            background-color: #0056b3;
-        }
-
-        .store-button:active {
-            background-color: #004080;
+        .store-image:hover {
+            transform: scale(1.1);
         }
 
         footer p {
