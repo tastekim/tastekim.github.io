@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Website</title>
+    <meta name="description" content="A brief description of my website">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="My Website">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mywebsite.com">
+    <meta property="og:image" content="https://www.mywebsite.com/og-image.jpg">
+    <meta property="og:image:alt" content="Description of the image">
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#fafafa">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        header,
+        main,
+        footer {
+            width: 100%;
+        }
+
+        header h1 {
+            margin: 20px 0;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .store-button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .store-button:hover {
+            background-color: #0056b3;
+        }
+
+        .store-button:active {
+            background-color: #004080;
+        }
+
+        footer p {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>TroublePainter</h1>
+</header>
+
+<main>
+    <div id="store-buttons"></div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Trouble Painter</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    function getMobileOperatingSystem() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Windows Phone detection
+        if (/windows phone/i.test(userAgent)) {
+            return "Windows Phone";
+        }
+
+        // Android detection
+        if (/android/i.test(userAgent)) {
+            return "Android";
+        }
+
+        // iOS detection
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return "iOS";
+        }
+
+        return "unknown";
+    }
+
+    function redirectToApp() {
+        // const appScheme = "app://open.my.app";
+        const appScheme = "instagram://app";
+        const timeout = 500;
+        const now = new Date().getTime();
+        const os = getMobileOperatingSystem();
+        setTimeout(() => {
+            if (new Date().getTime() - now < timeout + 100) {
+                const storeButtonsDiv = document.getElementById('store-buttons');
+                let buttonHtml = '';
+
+                if (os === "Android") {
+                    buttonHtml = '<a href="https://play.google.com/store/apps/details?id=my.app.package" class="store-button">구글 플레이 스토어 바로가기</a>';
+                } else if (os === "iOS") {
+                    buttonHtml = '<a href="https://apps.apple.com/app/id123456789" class="store-button">앱스토어 바로가기</a>';
+                } else {
+                    buttonHtml = '<p>Unknown OS. Please visit our site from an iOS or Android device to download the app.</p>';
+                }
+
+                storeButtonsDiv.innerHTML = buttonHtml;
+            }
+        }, timeout);
+
+        window.location = appScheme;
+    }
+
+    document.addEventListener('DOMContentLoaded', redirectToApp);
+</script>
+</body>
+
+</html>
