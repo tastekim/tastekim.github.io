@@ -62,8 +62,17 @@
             justify-content: center;
         }
 
-        .store-image {
-            width: 150%; /* 창 너비의 50%로 설정 */
+        .appstore-image {
+            width: 100%;
+            max-width: 200px; /* 최대 너비를 조정하세요 */
+            height: auto;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .googleplay-image {
+            width: 50%;
+            max-width: 200px; /* 최대 너비를 조정하세요 */
             height: auto;
             margin: 10px;
             transition: transform 0.3s ease;
@@ -127,9 +136,9 @@
                 let buttonHtml = '';
 
                 if (os === "Android") {
-                    buttonHtml = '<a href="https://play.google.com/store/apps/details?id=my.app.package"><img src="google-play-badge.png" class=""store-image></a>';
+                    buttonHtml = '<a href="https://play.google.com/store/apps/details?id=my.app.package"><img src="google-play-badge.png" class="googleplay-image"></a>';
                 } else if (os === "iOS") {
-                    buttonHtml = '<a href="https://apps.apple.com/app/id123456789"><img src="Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" class="store-image"></a>';
+                    buttonHtml = '<a href="https://apps.apple.com/app/id123456789"><img src="Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" class="appstore-image"></a>';
                 } else {
                     buttonHtml = '<p>Unknown OS. Please visit our site from an iOS or Android device to download the app.</p>';
                 }
