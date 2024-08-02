@@ -56,7 +56,7 @@
         }
 
         .store-image {
-            width: 200%; /* 창 너비의 50%로 설정 */
+            width: 150%; /* 창 너비의 50%로 설정 */
             height: auto;
             margin: 10px;
             transition: transform 0.3s ease;
@@ -120,7 +120,7 @@
                 let buttonHtml = '';
 
                 if (os === "Android") {
-                    buttonHtml = '<a href="https://play.google.com/store/apps/details?id=my.app.package" class="store-button">구글 플레이 스토어 바로가기</a>';
+                    buttonHtml = '<a href="https://play.google.com/store/apps/details?id=my.app.package" class="store-button"></a>';
                 } else if (os === "iOS") {
                     buttonHtml = '<a href="https://apps.apple.com/app/id123456789"><img src="Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" class="store-image"></a>';
                 } else {
