@@ -33,7 +33,6 @@
             margin: 0;
             font-family: Arial, sans-serif;
             text-align: center;
-            background: url('https://velog.velcdn.com/images/tastekim_/post/b6b927c6-22cf-43c1-b3ac-644520fdbf85/image.PNG') no-repeat center center fixed;
             background-size: cover;
         }
 
@@ -41,10 +40,6 @@
         main,
         footer {
             width: 100%;
-            position: absolute;
-            align-items: center;
-            text-align: center;
-            bottom: 0;
         }
 
         header h1 {
@@ -59,41 +54,16 @@
             justify-content: center;
         }
 
-        #store-buttons {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .appstore-image {
-            width: 130%;
-            align-items: center;
-            height: auto;
-            margin: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .googleplay-image {
-            width: 80%;
-            align-items: center;
-            height: auto;
-            margin: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .store-image:hover {
-            transform: scale(1.1);
-        }
-
         footer p {
-            margin: 20px;
+            margin: 20px 0;
         }
     </style>
 </head>
+
 <body>
-<div id="store-buttons"></div>
+<main>
+    <div id="store-buttons"></div>
+</main>
 
 <footer>
     <p>&copy; 2024 Trouble Painter</p>
@@ -104,17 +74,14 @@
     function getMobileOperatingSystem() {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-        // Windows Phone detection
         if (/windows phone/i.test(userAgent)) {
             return "Windows Phone";
         }
 
-        // Android detection
         if (/android/i.test(userAgent)) {
             return "Android";
         }
 
-        // iOS detection
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
             return "iOS";
         }
@@ -122,26 +89,43 @@
         return "unknown";
     }
 
+    function setDynamicBackground() {
+        const os = getMobileOperatingSystem();
+        const body = document.body;
+
+        if (os === "Android") {
+            body.style.backgroundImage = "url('background_aos.png')";
+        } else if (os === "iOS") {
+            body.style.backgroundImage = "url('background_ios.png')";
+        } else {
+            body.style.backgroundImage = "url('https://velog.velcdn.com/images/tastekim_/post/b6b927c6-22cf-43c1-b3ac-644520fdbf85/image.PNG')";
+        }
+    }
+
     function redirectToApp() {
-        // const appScheme = "app://open.my.app";
         const appScheme = "instagram://app";
         const timeout = 500;
         const now = new Date().getTime();
         const os = getMobileOperatingSystem();
+
+        setDynamicBackground();
+
         setTimeout(() => {
             if (new Date().getTime() - now < timeout + 100) {
-                const storeButtonsDiv = document.getElementById('store-buttons');
-                let buttonHtml = '';
+                let appLink = '';
 
                 if (os === "Android") {
-                    buttonHtml = '<a href="https://play.google.com/store/apps/details?id=my.app.package"><img src="google-play-badge.png" class="googleplay-image"></a>';
+                    appLink = 'https://play.google.com/store/apps/details?id=my.app.package';
                 } else if (os === "iOS") {
-                    buttonHtml = '<a href="https://apps.apple.com/app/id123456789"><img src="Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" class="appstore-image"></a>';
+                    appLink = 'https://apps.apple.com/app/id123456789';
                 } else {
-                    buttonHtml = '<p>Unknown OS. Please visit our site from an iOS or Android device to download the app.</p>';
+                    alert('Unknown OS. Please visit our site from an iOS or Android device to download the app.');
+                    return;
                 }
 
-                storeButtonsDiv.innerHTML = buttonHtml;
+                document.body.addEventListener('click', function() {
+                    window.location.href = appLink;
+                });
             }
         }, timeout);
 
