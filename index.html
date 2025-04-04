@@ -1,1 +1,66 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title><script defer="defer" src="/static/js/main.435f1a3c.js"></script><link href="/static/css/main.e6c13ad2.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Pocket Saber</title>
+    <link rel="icon" href="./images/icons/favicon.png" type="image/png">
+    
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PQNGKVXV');</script>
+    <!-- End Google Tag Manager -->
+  <script type="module" crossorigin src="./assets/index-22e95a58.js"></script>
+  <link rel="stylesheet" href="./assets/index-a6521f8c.css">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQNGKVXV"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Pre-Loader Start-->
+    <div id="preloader">
+        <div class="loader_line"></div>
+    </div>
+    <!-- Pre-Loader end -->
+
+    <div>
+        <button id="play-button">
+            <i id="play-icon" class="fa fa-play"></i>
+            Play
+        </button>
+    </div>
+
+    <canvas class="webgl"></canvas>
+
+    <div id="ui">
+        <div id="ui-mobile">
+            <button id="permissions">Request Permission</button>
+            <button id="calibrate">Calibrate</button>
+        </div>
+
+		<div id="saber-handle" class="saber-handle">
+			<div class="saber-handle__image">
+				<img src="./images/saber.png" alt="">
+			</div>
+
+			<button id="saber">Saber</button>
+		</div>
+
+        <img id="qrcode" src="" alt="qr code phone connection">
+    </div>
+
+    
+</body>
+</html>
