@@ -18,8 +18,8 @@
         f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-PQNGKVXV');</script>
     <!-- End Google Tag Manager -->
-  <script type="module" crossorigin src="./assets/index-22e95a58.js"></script>
-  <link rel="stylesheet" href="./assets/index-a6521f8c.css">
+  <script type="module" crossorigin src="./assets/index-79fbf015.js"></script>
+  <link rel="stylesheet" href="./assets/index-fa6d1959.css">
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -50,15 +50,43 @@
             <button id="calibrate">Calibrate</button>
         </div>
 
-		<div id="saber-handle" class="saber-handle">
-			<div class="saber-handle__image">
-				<img src="./images/saber.png" alt="">
-			</div>
+        <div id="saber-handles" class="saber-handles">
+            <!-- 왼쪽 라이트세이버 -->
+            <div id="saber-handle-left" class="saber-handle">
+                <div class="saber-handle__image">
+                    <img src="./images/saber.png" alt="Left Saber">
+                </div>
+                <button id="saber-left">Left Saber</button>
+            </div>
 
-			<button id="saber">Saber</button>
-		</div>
+            <!-- 오른쪽 라이트세이버 -->
+            <div id="saber-handle-right" class="saber-handle">
+                <div class="saber-handle__image">
+                    <img src="./images/saber.png" alt="Right Saber">
+                </div>
+                <button id="saber-right">Right Saber</button>
+            </div>
 
-        <img id="qrcode" src="" alt="qr code phone connection">
+            <!-- 모바일용 단일 라이트세이버 -->
+            <div id="saber-handle" class="saber-handle">
+                <div class="saber-handle__image">
+                    <img src="./images/saber.png" alt="">
+                </div>
+                <button id="saber">Saber</button>
+            </div>
+        </div>
+
+        <!-- QR 코드 영역 -->
+        <div id="qrcode-container">
+            <div class="qrcode-item">
+                <h3>왼쪽 라이트세이버</h3>
+                <img id="qrcode-left" src="" alt="QR code for left saber">
+            </div>
+            <div class="qrcode-item">
+                <h3>오른쪽 라이트세이버</h3>
+                <img id="qrcode-right" src="" alt="QR code for right saber">
+            </div>
+        </div>
     </div>
 
     
